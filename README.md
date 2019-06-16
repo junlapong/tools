@@ -85,9 +85,17 @@ Node Version Manager
 
 **URL:** [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-	
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```
+
 The script clones the nvm repository to `~/.nvm` and adds the source line to your profile (`~/.bash_profile`, `~/.zshrc`, `~/.profile`, or `~/.bashrc`).
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
 
 **Usage:**
 
@@ -100,7 +108,9 @@ The script clones the nvm repository to `~/.nvm` and adds the source line to you
 ## Serveo.net
 Expose local servers to the internet. No installation, no signup
 
-	ssh -R 80:localhost:3000 serveo.net
+```bash
+ssh -R 80:localhost:3000 serveo.net
+```
 
 ## sslyze
 Fast and powerful SSL/TLS server scanning library
