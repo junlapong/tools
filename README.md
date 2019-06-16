@@ -108,9 +108,8 @@ export NVM_DIR="$HOME/.nvm"
 ## Serveo.net
 Expose local servers to the internet. No installation, no signup
 
-```bash
-ssh -R 80:localhost:3000 serveo.net
-```
+	ssh -R 80:localhost:3000 serveo.net
+
 
 ## sslyze
 Fast and powerful SSL/TLS server scanning library
@@ -122,6 +121,7 @@ Fast and powerful SSL/TLS server scanning library
 **Usage:**
 
 	sslyze --regular --http_headers www.google.com
+
 
 ## tcpkali
 High performance TCP and WebSocket load generator and sink
