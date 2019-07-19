@@ -1,6 +1,5 @@
 # Tools
 
-
 ## AdoptOpenJDK 8
 Prebuilt OpenJDK 8 Binaries
 
@@ -55,7 +54,7 @@ iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Mac
 	brew cask install iterm2
 
 
-## JQ
+## jq
 Lightweight and flexible command-line JSON processor
 
 **URL:** [https://stedolan.github.io/jq](https://stedolan.github.io/jq/)
@@ -64,7 +63,10 @@ Lightweight and flexible command-line JSON processor
 	
 **Usage:**
 
-	curl http://jsonplaceholder.typicode.com/users | jq
+	http https://jsonplaceholder.typicode.com/users | jq
+	http https://jsonplaceholder.typicode.com/users | jq '.[0]'
+	http https://jsonplaceholder.typicode.com/users | jq '.[] | {name: .name, email: .email}'
+
 
 ## MacDown
 MacDown is an open source Markdown editor for macOS
@@ -73,12 +75,23 @@ MacDown is an open source Markdown editor for macOS
 
 	brew cask install macdown
 
+## mkcert
+A simple zero-config tool to make locally trusted development certificates with any names you'd like.
+
+**URL:** https://github.com/FiloSottile/mkcert
+
+
 ## Maven
 Java-based project management
 
 **URL:** [https://maven.apache.org/](https://maven.apache.org)
 
 	brew install maven
+
+## nmap
+
+	nmap --script ssl-enum-ciphers -p 443 example.com
+
 
 ## NVM
 Node Version Manager
@@ -104,6 +117,17 @@ export NVM_DIR="$HOME/.nvm"
 	nvm use --lts
 	nvm use <version>
 
+## scdl
+Soundcloud Music Downloader
+
+**URL:** https://github.com/flyingrub/scdl
+
+	pip3 install scdl
+
+**Usage:**
+
+	scdl -l $url --path ~/storage/music
+
 
 ## Serveo.net
 Expose local servers to the internet. No installation, no signup
@@ -111,7 +135,7 @@ Expose local servers to the internet. No installation, no signup
 	ssh -R 80:localhost:3000 serveo.net
 
 
-## sslyze
+## SSLyze
 Fast and powerful SSL/TLS server scanning library
 
 **URL:** [https://github.com/nabla-c0d3/sslyze](https://github.com/nabla-c0d3/sslyze)
@@ -121,7 +145,6 @@ Fast and powerful SSL/TLS server scanning library
 **Usage:**
 
 	sslyze --regular --http_headers www.google.com
-
 
 ## tcpkali
 High performance TCP and WebSocket load generator and sink
@@ -145,6 +168,17 @@ Thai-Eng Dictionary by Infinisoft
 13 Thai National Fonts by SIPA
 
 	brew cask install thai-national-fonts
+
+## tldr
+The TLDR pages are a community effort to simplify the beloved man pages with practical examples.
+
+**URL:** https://tldr.sh
+
+	brew install tldr
+
+**Usage:**
+
+	tldr git rebase
 
 
 ## Typora
@@ -171,7 +205,6 @@ Microsoft Visual Studio Code
 
 
 ## WRK
-
 HTTP benchmarking tool
 
 **URL:** [https://github.com/wg/wrk](https://github.com/wg/wrk)
@@ -181,3 +214,34 @@ HTTP benchmarking tool
 **Usage:**
 
 	wrk -c100 -d30s -t4 http://localhost:8080/
+
+## youtube-dl
+youtube-dl is a command-line program to download videos from YouTube.com and a few more sites.
+
+**URL:** https://github.com/ytdl-org/youtube-dl
+
+	brew install youtube-dl
+
+**Usage:**
+
+	youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'
+	youtube-dl -x --embed-thumbnail --audio-format mp3
+
+
+## Presentation
+
+### hacker-slides
+A small UI for building presentation slides from markdown markup. (revealjs)
+
+**URL:** https://github.com/msoedov/hacker-slides
+
+### revealgo
+Markdown driven presentation tool written in Go!
+
+**URL:** https://github.com/yusukebe/revealgo
+
+	go get github.com/yusukebe/revealgo/cmd/revealgo
+
+**Usage:**
+
+	revealgo [options] MARKDOWN.md
