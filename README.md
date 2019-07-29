@@ -80,6 +80,25 @@ A simple zero-config tool to make locally trusted development certificates with 
 
 **URL:** https://github.com/FiloSottile/mkcert
 
+	brew install mkcert
+	brew install nss
+
+**Usage:**
+
+Install local CA
+
+	mkcert -install
+
+	Using the local CA at "/Users/username/Library/Application Support/mkcert" ✨
+	The local CA is now installed in the system trust store! ⚡️
+	The local CA is now installed in the Firefox trust store (requires browser restart)! 🦊
+
+Create Certificates
+
+	mkcert example.com "*.example.com" localhost 127.0.0.1 ::1
+
+	The certificate is at "./example.com+5.pem" and the key at "./example.com+5-key.pem" ✅
+
 
 ## Maven
 Java-based project management
