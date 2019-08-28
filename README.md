@@ -1,13 +1,29 @@
 # Tools
 
 ## AdoptOpenJDK 8
+
 Prebuilt OpenJDK 8 Binaries
 
 **URL:** [https://adoptopenjdk.net](https://adoptopenjdk.net/)
 
 	brew cask install adoptopenjdk8
 
+### Other Versions:
+
+**URL:** https://github.com/AdoptOpenJDK/homebrew-openjdk
+
+	brew tap AdoptOpenJDK/openjdk
+	brew cask install <version>
+	brew cask install adoptopenjdk11
+
+### SDK MAN
+
+- https://sdkman.io/jdks
+- https://sdkman.io/sdks
+
+
 ## DBeaver Community
+
 Free multi-platform database tool for developers, SQL programmers, database administrators and analysts. Supports all popular databases
 
 **URL:** [https://dbeaver.io](https://dbeaver.io/)
