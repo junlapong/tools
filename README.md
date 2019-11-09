@@ -14,7 +14,28 @@ Prebuilt OpenJDK 8 Binaries
 
 	brew tap AdoptOpenJDK/openjdk
 	brew cask install <version>
+
 	brew cask install adoptopenjdk11
+	brew cask install adoptopenjdk13
+
+### Switch Versions:
+
+Add the following aliases to `.bash_profile` or `.bashrc`
+
+	export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+	export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+	export JAVA_13_HOME=$(/usr/libexec/java_home -v13)
+	#export JAVA_HOME=$JAVA_8_HOME
+
+	alias java8='export JAVA_HOME=$JAVA_8_HOME'
+	alias java11='export JAVA_HOME=$JAVA_11_HOME'
+	alias java13='export JAVA_HOME=$JAVA_13_HOME'
+
+switch version
+
+	java11
+	java -version
+
 
 ### SDK MAN
 
