@@ -1,14 +1,50 @@
 # Tools
 
-
 ## AdoptOpenJDK 8
+
 Prebuilt OpenJDK 8 Binaries
 
 **URL:** [https://adoptopenjdk.net](https://adoptopenjdk.net/)
 
 	brew cask install adoptopenjdk8
 
+### Other Versions:
+
+**URL:** https://github.com/AdoptOpenJDK/homebrew-openjdk
+
+	brew tap AdoptOpenJDK/openjdk
+	brew cask install <version>
+
+	brew cask install adoptopenjdk11
+	brew cask install adoptopenjdk13
+
+### Switch Versions:
+
+Add the following aliases to `.bash_profile` or `.bashrc`
+
+	export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+	export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+	export JAVA_13_HOME=$(/usr/libexec/java_home -v13)
+	#export JAVA_HOME=$JAVA_8_HOME
+
+	alias java8='export JAVA_HOME=$JAVA_8_HOME'
+	alias java11='export JAVA_HOME=$JAVA_11_HOME'
+	alias java13='export JAVA_HOME=$JAVA_13_HOME'
+
+switch version
+
+	java11
+	java -version
+
+
+### SDK MAN
+
+- https://sdkman.io/jdks
+- https://sdkman.io/sdks
+
+
 ## DBeaver Community
+
 Free multi-platform database tool for developers, SQL programmers, database administrators and analysts. Supports all popular databases
 
 **URL:** [https://dbeaver.io](https://dbeaver.io/)
@@ -58,7 +94,7 @@ iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Mac
 	brew cask install iterm2
 
 
-## JQ
+## jq
 Lightweight and flexible command-line JSON processor
 
 **URL:** [https://stedolan.github.io/jq](https://stedolan.github.io/jq/)
@@ -67,7 +103,10 @@ Lightweight and flexible command-line JSON processor
 	
 **Usage:**
 
-	curl http://jsonplaceholder.typicode.com/users | jq
+	http https://jsonplaceholder.typicode.com/users | jq
+	http https://jsonplaceholder.typicode.com/users | jq '.[0]'
+	http https://jsonplaceholder.typicode.com/users | jq '.[] | {name: .name, email: .email}'
+
 
 ## MacDown
 MacDown is an open source Markdown editor for macOS
@@ -76,12 +115,42 @@ MacDown is an open source Markdown editor for macOS
 
 	brew cask install macdown
 
+## mkcert
+A simple zero-config tool to make locally trusted development certificates with any names you'd like.
+
+**URL:** https://github.com/FiloSottile/mkcert
+
+	brew install mkcert
+	brew install nss
+
+**Usage:**
+
+Install local CA
+
+	mkcert -install
+
+	Using the local CA at "/Users/username/Library/Application Support/mkcert" ✨
+	The local CA is now installed in the system trust store! ⚡️
+	The local CA is now installed in the Firefox trust store (requires browser restart)! 🦊
+
+Create Certificates
+
+	mkcert example.com "*.example.com" localhost 127.0.0.1 ::1
+
+	The certificate is at "./example.com+5.pem" and the key at "./example.com+5-key.pem" ✅
+
+
 ## Maven
 Java-based project management
 
 **URL:** [https://maven.apache.org/](https://maven.apache.org)
 
 	brew install maven
+
+## nmap
+
+	nmap --script ssl-enum-ciphers -p 443 example.com
+
 
 ## NVM
 Node Version Manager
@@ -107,6 +176,17 @@ export NVM_DIR="$HOME/.nvm"
 	nvm use --lts
 	nvm use <version>
 
+## scdl
+Soundcloud Music Downloader
+
+**URL:** https://github.com/flyingrub/scdl
+
+	pip3 install scdl
+
+**Usage:**
+
+	scdl -l $url --path ~/storage/music
+
 
 ## Serveo.net
 Expose local servers to the internet. No installation, no signup
@@ -114,7 +194,7 @@ Expose local servers to the internet. No installation, no signup
 	ssh -R 80:localhost:3000 serveo.net
 
 
-## sslyze
+## SSLyze
 Fast and powerful SSL/TLS server scanning library
 
 **URL:** [https://github.com/nabla-c0d3/sslyze](https://github.com/nabla-c0d3/sslyze)
@@ -124,7 +204,6 @@ Fast and powerful SSL/TLS server scanning library
 **Usage:**
 
 	sslyze --regular --http_headers www.google.com
-
 
 ## tcpkali
 High performance TCP and WebSocket load generator and sink
@@ -148,6 +227,17 @@ Thai-Eng Dictionary by Infinisoft
 13 Thai National Fonts by SIPA
 
 	brew cask install thai-national-fonts
+
+## tldr
+The TLDR pages are a community effort to simplify the beloved man pages with practical examples.
+
+**URL:** https://tldr.sh
+
+	brew install tldr
+
+**Usage:**
+
+	tldr git rebase
 
 
 ## Typora
@@ -174,7 +264,6 @@ Microsoft Visual Studio Code
 
 
 ## WRK
-
 HTTP benchmarking tool
 
 **URL:** [https://github.com/wg/wrk](https://github.com/wg/wrk)
@@ -184,3 +273,34 @@ HTTP benchmarking tool
 **Usage:**
 
 	wrk -c100 -d30s -t4 http://localhost:8080/
+
+## youtube-dl
+youtube-dl is a command-line program to download videos from YouTube.com and a few more sites.
+
+**URL:** https://github.com/ytdl-org/youtube-dl
+
+	brew install youtube-dl
+
+**Usage:**
+
+	youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'
+	youtube-dl -x --embed-thumbnail --audio-format mp3
+
+
+## Presentation
+
+### hacker-slides
+A small UI for building presentation slides from markdown markup. (revealjs)
+
+**URL:** https://github.com/msoedov/hacker-slides
+
+### revealgo
+Markdown driven presentation tool written in Go!
+
+**URL:** https://github.com/yusukebe/revealgo
+
+	go get github.com/yusukebe/revealgo/cmd/revealgo
+
+**Usage:**
+
+	revealgo [options] MARKDOWN.md
