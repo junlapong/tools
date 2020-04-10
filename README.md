@@ -46,6 +46,9 @@ IntelliJ IDEA is a Java integrated development environment (IDE) for developing 
 
 	brew cask install intellij-idea-ce
 
+### Jetbrains Toolbox
+
+	brew cask install jetbrains-toolbox
 
 ## iTerm2
 iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Macs with macOS 10.12 or newer. iTerm2 brings the terminal into the modern age with features you never knew you always wanted.
