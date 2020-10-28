@@ -296,8 +296,51 @@ Markdown driven presentation tool written in Go!
 
 **URL:** https://github.com/yusukebe/revealgo
 
-	go get github.com/yusukebe/revealgo/cmd/revealgo
+	go get -u -v github.com/yusukebe/revealgo/cmd/revealgo
 
 **Usage:**
 
 	revealgo [options] MARKDOWN.md
+
+## Go Tools
+
+### Curlie
+Curlie is a frontend to `curl` that adds the ease of use of `httpie`
+
+	brew install rs/tap/curlie
+
+	# or
+	go get -u -v github.com/rs/curlie
+
+Add alias in your `.bash_profile` or `.bashrc`
+
+	alias curl='curlie'
+
+## HEY
+hey is a tiny program that sends some load to a web application.
+
+	brew install hey
+
+	# or
+	go get -u -v github.com/rakyll/hey
+
+**Usage:**
+
+	hey -c 200 -cpus 1 -z 10s http://localhost:8088/get
+
+## macOS
+
+### mas
+Mac App Store command-line interface
+
+	brew install mas
+
+### Mos
+Smooths scrolling and set mouse scroll directions independently
+
+	brew cask install mos
+
+### osx-cpu-temp
+Outputs current CPU temperature for OSX
+
+	brew install osx-cpu-temp
