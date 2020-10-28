@@ -1,46 +1,43 @@
 # Tools
 
-## AdoptOpenJDK 8
+## AdoptOpenJDK
 
-Prebuilt OpenJDK 8 Binaries
+Prebuilt OpenJDK Binaries
 
 **URL:** [https://adoptopenjdk.net](https://adoptopenjdk.net/)
 
-	brew cask install adoptopenjdk8
-
-### Other Versions:
+### AdoptOpenJDK - HomeBrew TAP:
 
 **URL:** https://github.com/AdoptOpenJDK/homebrew-openjdk
 
 	brew tap AdoptOpenJDK/openjdk
 	brew cask install <version>
 
+	brew cask install adoptopenjdk      # latest
+	brew cask install adoptopenjdk8
 	brew cask install adoptopenjdk11
-	brew cask install adoptopenjdk13
 
-### Switch Versions:
+### Switch between different JDK versions:
 
-Add the following aliases to `.bash_profile` or `.bashrc`
+Add the below function in your `.bash_profile` or `.bashrc`
 
-	export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-	export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
-	export JAVA_13_HOME=$(/usr/libexec/java_home -v13)
-	#export JAVA_HOME=$JAVA_8_HOME
+	export JAVA_HOME=$(/usr/libexec/java_home -v11) # 1.8, 11, 15
 
-	alias java8='export JAVA_HOME=$JAVA_8_HOME'
-	alias java11='export JAVA_HOME=$JAVA_11_HOME'
-	alias java13='export JAVA_HOME=$JAVA_13_HOME'
+	jdk() {
+		export JAVA_HOME=$(/usr/libexec/java_home -v"$1");
+		java -version
+	}
 
-switch version
+Change the version
 
-	java11
-	java -version
+	$ jdk 1.8
+	openjdk version "1.8.0_272"
 
+	$ jdk 11
+	openjdk version "11.0.9" 2020-10-20
 
-### SDK MAN
-
-- https://sdkman.io/jdks
-- https://sdkman.io/sdks
+	$ jdk 15
+	openjdk version "15" 2020-09-15
 
 
 ## DBeaver Community
